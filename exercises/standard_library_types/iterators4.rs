@@ -1,22 +1,30 @@
 // iterators4.rs
-
-// I AM NOT DONE
+// Complete this function to return the factorial of num
+// Do not use:
+// - return
+// Try not to use:
+// - imperative style loops (for, while)
+// - additional variables
+// For an extra challenge, don't use:
+// - recursion
+// Execute `rustlings hint iterators4` for hints.
 
 pub fn factorial(num: u64) -> u64 {
-    // Complete this function to return the factorial of num
-    // Do not use:
-    // - return
-    // Try not to use:
-    // - imperative style loops (for, while)
-    // - additional variables
-    // For an extra challenge, don't use:
-    // - recursion
-    // Execute `rustlings hint iterators4` for hints.
+    if num == 0 {
+        1
+    } else {
+        (1..=num).reduce(|f, n| f * n).unwrap()
+    }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn factorial_of_0() {
+        assert_eq!(1, factorial(0));
+    }
 
     #[test]
     fn factorial_of_1() {
